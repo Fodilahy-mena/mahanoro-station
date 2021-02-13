@@ -2,8 +2,9 @@ export default{
     trips: [],
     passenger:
     {
-        "passengerFirstName": "",
-        "passengerLastName": "",
-        "passengerPhoneNumber": "",
+        "id": '1',
+        "passengerFirstName": "John",
+        "passengerLastName": "Doe",
+        "passengerPhoneNumber": "0344752060",
     }
 }
