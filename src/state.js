@@ -1,5 +1,6 @@
 export default{
     trips: [],
+    seatItems: [],
     passenger:
     {
         "id": '1',

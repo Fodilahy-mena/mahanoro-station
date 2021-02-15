@@ -16,6 +16,28 @@ export function getTrips() {
 	};
 }
 
+export function setSeatItems(seatItems){
+    return {
+      type: "SET_SEAT_ITEMS",
+      payload: seatItems
+    }
+  }
+
+export function bookSeat(seat) {
+    return {
+    type: "BOOK_SEAT",
+    payload: seat
+    }
+}
+
+export function unbookSeat(id) {
+    return {
+    type: "UNBOOK_SEAT",
+    payload: id
+    }
+}
+  
+
 export function setPassenger(passenger) {
     return {
         type: "SET_PASSENGER",

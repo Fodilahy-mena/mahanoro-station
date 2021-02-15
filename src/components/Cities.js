@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components';
 import { useParams, useHistory } from 'react-router-dom';
+
 import { Link } from 'react-router-dom';
 const CityIcon = styled.img`
     width: 35px;
@@ -30,18 +31,24 @@ const TripDirection = styled.h3`
 
 
 export default function Cities({getTrips, trips}) {
-
+    
     useEffect(() => {
 		getTrips();
 	}, []);
-    console.log(trips)
+    
 
+    console.log(trips)
+    function getUniqueListBy(trips, key) {
+        return [...new Map(trips.map(trip => [trip[key], trip])).values()]
+    }
+    const filteredTripsByDestination = getUniqueListBy(trips, 'destination')
+    console.log("filteredTripsByDestination",filteredTripsByDestination)
     return (
         <div>
             <h2>Where are you going?</h2>
 
             <TripList>
-                {trips.map(trip => (
+                {filteredTripsByDestination.map(trip => (
                     <Link to={`/city/${trip.destination}`} key={trip.id}>
                         <TripItem>
                             <CityIcon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcR18F7ssux6MzB3Tp5WRTre2FohYKTJLilg&usqp=CAU"/>

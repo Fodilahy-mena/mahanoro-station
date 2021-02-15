@@ -4,6 +4,8 @@ import Home from '../src/pages/Home';
 import Account from '../src/pages/Account';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Destination from '../src/containers/Destination'
+import Seats from '../src/containers/Seats';
+
 export default function App() {
     return (
         <div>
@@ -14,6 +16,9 @@ export default function App() {
                 </Route>
                 <Route exact path="/city/:destination">
 					<Destination />
+				</Route>
+                <Route exact path="/trip/:tripId">
+					<Seats />
 				</Route>
                 <Route path="/account">
                     <Account/>

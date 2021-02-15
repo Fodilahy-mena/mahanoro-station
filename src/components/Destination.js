@@ -18,14 +18,41 @@ const Base = styled.div`
     margin-left: 70px;
 `;
 
+const List = styled.ul`
+    padding: 0;
+`;
+
+const Item = styled.li`
+    list-style: none;
+    display: grid;
+    /* justify-content: space-between;
+    flex-direction: row; */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+
+    button {
+        max-width: fit-content;
+        margin-left: auto;
+    }
+`;
+
+const ItemFrame = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+`;
+
+const BaseItem = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
 
 export default function Destination({trips}) {
     const { destination } = useParams();
     console.log(destination && destination)
-    const trip = trips.find(trip => trip.destination == destination);
+    
     const filteredDestination = trips.filter(trip => trip.destination === destination);
     console.log(filteredDestination)
-	console.log("trip",trip)
     return (
         <div>
             <DestinationFrame>
@@ -35,24 +62,26 @@ export default function Destination({trips}) {
                     <p>{destination && destination}</p>
                 </Base>
             </DestinationFrame>
-            <ul>
+            <List>
                 {filteredDestination.map(destination => (
-                <li key={destination.id}>
-                    <img />
-                    <div>
-                        <div>
+                <Item key={destination.id}>
+                    <i>🚖 </i>
+                    <ItemFrame>
+                        <BaseItem>
                             <span>{new Date(destination.departureTime).getDay()}</span>
-                            <span>{new Date(destination.departureTime).getMinutes()}:{new Date(destination.departureTime).getSeconds()}</span>
-                        </div>
-                        <div>
-                            <span>{new Date(destination.departureTime).toDateString()}</span>
+                            <span>{new Date(destination.departureTime).getHours()}:{new Date(destination.departureTime).getMinutes()}</span>
+                        </BaseItem>
+                        <BaseItem>
+                            <span>{new Date(destination.departureTime).toLocaleDateString()}</span>
                             <span>{destination.seats.filter(seat => seat.isAvailable === true).length} seats left</span>
-                        </div>
-                    </div>
-                    <button>Book a seat</button>
-                </li>
+                        </BaseItem>
+                    </ItemFrame>
+                    <Link to={`/trip/${destination.id}`}>
+                        <button>Book a seat</button>
+                    </Link>
+                </Item>
                 ))}
-            </ul>
+            </List>
         </div>
     )
 }

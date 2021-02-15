@@ -11,6 +11,21 @@ function trips(state =[], action){
     }
   }
 
+  function seatItems(state = [], action) {
+    switch (action.type) {
+        case "SET_SEAT_ITEMS":
+            return action.payload
+        case "BOOK_SEAT":
+            // push in an immutable way
+            return [...state, action.payload]
+        case "UNBOOK_SEAT":
+            return state.filter(seatItem => seatItem.id != action.payload);
+        default:
+            return state;
+    }
+
+}
+
 function passenger(state={}, action) {
     switch (action.type) {
         case 'SET_PASSENGER':
@@ -20,8 +35,10 @@ function passenger(state={}, action) {
     }
 }
 
+
 export default combineReducers({
     trips,
+    seatItems,
     passenger,
   });
   
