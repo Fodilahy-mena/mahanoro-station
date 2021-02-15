@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components';
-import { useParams, Link } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import SeatItem from './SeatItem';
+import ConfirmationBooking from './ConfirmationBooking';
 
 const DestinationFrame = styled.div`
     display: flex;
@@ -9,6 +10,10 @@ const DestinationFrame = styled.div`
     max-width: max-content;
     margin-left: auto;
     margin-right: auto;
+    .open {
+        opacity: 1;
+        pointer-events: all;
+    }
 `;
 
 const Clock = styled.img`
@@ -60,7 +65,8 @@ const InfoBase = styled.div`
 `;
 
 export default function Seats({trips, seatItems, bookSeat, unbookSeat}) {
-
+    const [showModal, setShowModal] = useState(false);
+    console.log("show",showModal)
     const { tripId } = useParams();
     console.log(tripId && tripId)
     const trip = trips.find(trip => trip.id == tripId);
@@ -70,7 +76,9 @@ export default function Seats({trips, seatItems, bookSeat, unbookSeat}) {
 
     return (
         <div>
+            
             <DestinationFrame>
+                <ConfirmationBooking setShowModal={setShowModal} showModal={showModal}/>
                 <Clock src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC7NdbqIz7MkVy7G7CGjhfofoZZSDxyhvWAw&usqp=CAU" alt="Bus image"/>
                 <Base>
                     <h2>Book a seat to:</h2>
@@ -118,7 +126,7 @@ export default function Seats({trips, seatItems, bookSeat, unbookSeat}) {
                         <span>Ar</span>
                         <span>/seat</span>
                     </div>
-                    <button>Book <i>{seatItems.length > 0 ? seatItems.length : 0}</i> seat</button>
+                    <button onClick={() => setShowModal(!showModal)}>Book <i>{seatItems.length > 0 ? seatItems.length : 0}</i> seat</button>
                     <p>Total: {seatItems.length > 0 ? trip.price * seatItems.length : 0} Ar</p>
                 </div>
             </InfoFeature>

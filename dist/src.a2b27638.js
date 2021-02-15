@@ -38626,7 +38626,75 @@ function SeatItem({
     alt: "Seat"
   }));
 }
-},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/Seats.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/ConfirmationBooking.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = ConfirmationBooking;
+exports.Base = exports.Container = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Container = _styledComponents.default.section`
+    background: rgba(255, 255, 255, 0.8);
+    position: fixed;
+    transition: all;
+    height: 100vh;
+    width: 100vw;
+    transition: all 0.25s;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    left: 0;
+`;
+exports.Container = Container;
+const Base = _styledComponents.default.div`
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s;
+
+    max-height: 593px;
+    background: #FFFFFF;
+    border: 5px solid #E53170;
+    box-sizing: border-box;
+    max-width: 450px;
+
+    padding: 32px;
+    max-width: 450px;
+    width: 773px;
+    height: 450px;
+    position: relative;
+    bottom: 2rem;
+    text-align: center;
+`;
+exports.Base = Base;
+const ButtonToAccount = _styledComponents.default.button`
+    cursor: pointer;
+`;
+
+function ConfirmationBooking({
+  setShowModal,
+  showModal
+}) {
+  return /*#__PURE__*/_react.default.createElement(Container, {
+    className: showModal && 'open'
+  }, /*#__PURE__*/_react.default.createElement(Base, null, /*#__PURE__*/_react.default.createElement("p", {
+    onClick: () => setShowModal(false)
+  }, "x"), /*#__PURE__*/_react.default.createElement("h2", null, "\u2714  Booking confirmed!"), /*#__PURE__*/_react.default.createElement("p", null, "Thank you for trusting our services. Your booking has been added to your account. You can review it there."), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: "/account"
+  }, /*#__PURE__*/_react.default.createElement(ButtonToAccount, null, "Check your account"))));
+}
+},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/components/Seats.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38642,6 +38710,8 @@ var _reactRouterDom = require("react-router-dom");
 
 var _SeatItem = _interopRequireDefault(require("./SeatItem"));
 
+var _ConfirmationBooking = _interopRequireDefault(require("./ConfirmationBooking"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -38654,6 +38724,10 @@ const DestinationFrame = _styledComponents.default.div`
     max-width: max-content;
     margin-left: auto;
     margin-right: auto;
+    .open {
+        opacity: 1;
+        pointer-events: all;
+    }
 `;
 const Clock = _styledComponents.default.img`
     width: 134px;
@@ -38705,6 +38779,8 @@ function Seats({
   bookSeat,
   unbookSeat
 }) {
+  const [showModal, setShowModal] = (0, _react.useState)(false);
+  console.log("show", showModal);
   const {
     tripId
   } = (0, _reactRouterDom.useParams)();
@@ -38712,7 +38788,10 @@ function Seats({
   const trip = trips.find(trip => trip.id == tripId);
   console.log(trip);
   console.log("seatItems", seatItems);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(DestinationFrame, null, /*#__PURE__*/_react.default.createElement(Clock, {
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(DestinationFrame, null, /*#__PURE__*/_react.default.createElement(_ConfirmationBooking.default, {
+    setShowModal: setShowModal,
+    showModal: showModal
+  }), /*#__PURE__*/_react.default.createElement(Clock, {
     src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC7NdbqIz7MkVy7G7CGjhfofoZZSDxyhvWAw&usqp=CAU",
     alt: "Bus image"
   }), /*#__PURE__*/_react.default.createElement(Base, null, /*#__PURE__*/_react.default.createElement("h2", null, "Book a seat to:"), /*#__PURE__*/_react.default.createElement("p", null, trip.destination))), /*#__PURE__*/_react.default.createElement(InfoFeature, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Pick a seat"), /*#__PURE__*/_react.default.createElement(SeatList, null, trip.seats.map(seat => /*#__PURE__*/_react.default.createElement(_SeatItem.default, {
@@ -38721,9 +38800,11 @@ function Seats({
     bookSeat: bookSeat,
     unbookSeat: unbookSeat,
     seat: seat
-  })))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Trip informations:"), /*#__PURE__*/_react.default.createElement(InfoList, null, /*#__PURE__*/_react.default.createElement(InfoItem, null, /*#__PURE__*/_react.default.createElement(InfoBase, null, /*#__PURE__*/_react.default.createElement("span", null, "Departure time:"), /*#__PURE__*/_react.default.createElement("span", null, new Date(trip.departureTime).getHours(), ":", new Date(trip.departureTime).getMinutes(), ",", new Date(trip.departureTime).toLocaleDateString())), /*#__PURE__*/_react.default.createElement(InfoBase, null, /*#__PURE__*/_react.default.createElement("span", null, "Driver:"), /*#__PURE__*/_react.default.createElement("span", null, trip.driverName)), /*#__PURE__*/_react.default.createElement(InfoBase, null, /*#__PURE__*/_react.default.createElement("span", null, "Driver's contact:"), /*#__PURE__*/_react.default.createElement("span", null, trip.driverContact)), /*#__PURE__*/_react.default.createElement(InfoBase, null, /*#__PURE__*/_react.default.createElement("span", null, "Estimated duration:"), /*#__PURE__*/_react.default.createElement("span", null, trip.estimatedDuration)), /*#__PURE__*/_react.default.createElement(InfoBase, null, /*#__PURE__*/_react.default.createElement("span", null, "Breaks:"), /*#__PURE__*/_react.default.createElement("span", null, trip.breaks)))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, trip.price), /*#__PURE__*/_react.default.createElement("span", null, "Ar"), /*#__PURE__*/_react.default.createElement("span", null, "/seat")), /*#__PURE__*/_react.default.createElement("button", null, "Book ", /*#__PURE__*/_react.default.createElement("i", null, seatItems.length > 0 ? seatItems.length : 0), " seat"), /*#__PURE__*/_react.default.createElement("p", null, "Total: ", seatItems.length > 0 ? trip.price * seatItems.length : 0, " Ar"))));
+  })))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Trip informations:"), /*#__PURE__*/_react.default.createElement(InfoList, null, /*#__PURE__*/_react.default.createElement(InfoItem, null, /*#__PURE__*/_react.default.createElement(InfoBase, null, /*#__PURE__*/_react.default.createElement("span", null, "Departure time:"), /*#__PURE__*/_react.default.createElement("span", null, new Date(trip.departureTime).getHours(), ":", new Date(trip.departureTime).getMinutes(), ",", new Date(trip.departureTime).toLocaleDateString())), /*#__PURE__*/_react.default.createElement(InfoBase, null, /*#__PURE__*/_react.default.createElement("span", null, "Driver:"), /*#__PURE__*/_react.default.createElement("span", null, trip.driverName)), /*#__PURE__*/_react.default.createElement(InfoBase, null, /*#__PURE__*/_react.default.createElement("span", null, "Driver's contact:"), /*#__PURE__*/_react.default.createElement("span", null, trip.driverContact)), /*#__PURE__*/_react.default.createElement(InfoBase, null, /*#__PURE__*/_react.default.createElement("span", null, "Estimated duration:"), /*#__PURE__*/_react.default.createElement("span", null, trip.estimatedDuration)), /*#__PURE__*/_react.default.createElement(InfoBase, null, /*#__PURE__*/_react.default.createElement("span", null, "Breaks:"), /*#__PURE__*/_react.default.createElement("span", null, trip.breaks)))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("span", null, trip.price), /*#__PURE__*/_react.default.createElement("span", null, "Ar"), /*#__PURE__*/_react.default.createElement("span", null, "/seat")), /*#__PURE__*/_react.default.createElement("button", {
+    onClick: () => setShowModal(!showModal)
+  }, "Book ", /*#__PURE__*/_react.default.createElement("i", null, seatItems.length > 0 ? seatItems.length : 0), " seat"), /*#__PURE__*/_react.default.createElement("p", null, "Total: ", seatItems.length > 0 ? trip.price * seatItems.length : 0, " Ar"))));
 }
-},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./SeatItem":"src/components/SeatItem.js"}],"src/containers/Seats.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./SeatItem":"src/components/SeatItem.js","./ConfirmationBooking":"src/components/ConfirmationBooking.js"}],"src/containers/Seats.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
