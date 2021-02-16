@@ -95,7 +95,6 @@ export default function MyAccount({passenger, bookings}) {
                             </BookingBase>
                             <button>Cancel</button>
                         </BookingItem>))
-                
                         :
                         <p>You have no booking yet. <Link to="/">Please start booking!</Link></p>
                         }

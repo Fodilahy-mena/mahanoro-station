@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 
 const SeatImage = styled.img`
@@ -13,7 +13,11 @@ const Item = styled.li`
 export default function SeatItem({seatItems, seat, bookSeat, unbookSeat, setSeats}) {
 
     const isAlreadyBooked = seatItems.some(item => item.id == seat.id);
-    
+    const [newSeat, setNewSeat] = useState();
+    // useEffect(() => {
+    //     console.log("newSeat", newSeat)
+    // })
+    console.log("New",newSeat)
     return (
         isAlreadyBooked ? 
         <Item className="booked" onClick={() => { 
@@ -22,10 +26,26 @@ export default function SeatItem({seatItems, seat, bookSeat, unbookSeat, setSeat
             <SeatImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfvlNhh18sqYF2GvooJM_8PoIxuDkzqIgdlg&usqp=CAU" alt="Seat"/>
         </Item>
         :
-        <Item className={!seat.isAvailable && 'seat_disabled'} onClick={() => { 
+        <Item className={!seat.isAvailable && 'seat_disabled'} onClick={(up) => { 
             if(seat.isAvailable) {
-                bookSeat(seat)
+                setNewSeat(seat); 
+                
+                setTimeout(() => {
+                    setNewSeat((prevState) => {
+                        return {
+                            ...prevState,
+                            passengerFirstName: "Jerome"
+                        }
+                    }
+                    
+                    )
+                }, 250);
+                setTimeout(() => {
+                    console.log("NewO",newSeat)
+                }, 500)
+                bookSeat(seat);
                 setSeats(prevState => [...prevState, seat]);
+                
             } 
             }} key={seat.id}>
             <SeatImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfvlNhh18sqYF2GvooJM_8PoIxuDkzqIgdlg&usqp=CAU" alt="Seat"/>
