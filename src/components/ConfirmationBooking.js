@@ -40,15 +40,21 @@ const ButtonToAccount = styled.button`
     cursor: pointer;
 `;
 
-export default function ConfirmationBooking({setShowModal,showModal}) {
+const Close = styled.p`
+    align-self: flex-end;
+`;
+
+export default function ConfirmationBooking({setShowModal,showModal, booking, updatedTrip}) {
     return (
         <Container className={showModal && 'open'}>
             <Base>
-                <p onClick={() => setShowModal(false)}>x</p>
+                <Close onClick={() => setShowModal(false)}>x</Close>
                 <h2>✔  Booking confirmed!</h2>
                 <p>Thank you for trusting our services. Your booking has been added to your account. You can review it there.</p>
                 <Link to="/account">
-                    <ButtonToAccount>Check your account</ButtonToAccount>
+                    <ButtonToAccount onClick={() => {
+                        booking(updatedTrip)
+                    }}>Check your account</ButtonToAccount>
                 </Link>
             </Base>
         </Container>

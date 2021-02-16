@@ -4,6 +4,7 @@ import MyAccount from '../components/MyAccount';
 function mapStateToProps(state) {
 	return {
 		passenger: state.passenger,
+		bookings: state.bookings
 	};
 }
 

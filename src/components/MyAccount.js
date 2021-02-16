@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const ProfileFrame = styled.div`
     display: flex;
@@ -45,8 +46,9 @@ const BookingBase = styled.div`
     display: flex;
     flex-direction: column;
 `;
-export default function MyAccount({passenger}) {
+export default function MyAccount({passenger, bookings}) {
     console.log(passenger)
+    console.log(bookings)
     return (
         <>
             <ProfileFrame>
@@ -78,18 +80,26 @@ export default function MyAccount({passenger}) {
                 <div>
                     <h3>My bookings:</h3>
                     <BookingList>
-                        <BookingItem>
+                        {bookings.length > 0 ?
+                            
+                        bookings.map((booking, index )=> (
+                        <BookingItem key={booking.id + index}>
                             <i>🚕</i>
                             <BookingBase>
-                                <span>Antananarivo</span>
-                                <span>Date</span>
+                                <span>{booking.destination}</span>
+                                <span>{new Date(booking.departureTime).toLocaleDateString()}, {new Date(booking.departureTime).getHours()}:{new Date(booking.departureTime).getMinutes()}</span>
                             </BookingBase>
                             <BookingBase>
-                                <span>1 seat</span>
-                                <span>0000 Ar</span>
+                                <span>{booking.seats.length}</span>
+                                <span>{booking.price * booking.seats.length} Ar</span>
                             </BookingBase>
                             <button>Cancel</button>
-                        </BookingItem>
+                        </BookingItem>))
+                
+                        :
+                        <p>You have no booking yet. <Link to="/">Please start booking!</Link></p>
+                        }
+                        {bookings.length > 0 && <Link to="/">Book more?</Link>}
                     </BookingList>
                 </div>
             </AccountFeature>

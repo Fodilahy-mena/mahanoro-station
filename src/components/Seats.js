@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import { useParams} from 'react-router-dom';
 import SeatItem from './SeatItem';
@@ -64,21 +64,32 @@ const InfoBase = styled.div`
     justify-content: space-between;
 `;
 
-export default function Seats({trips, seatItems, bookSeat, unbookSeat}) {
+export default function Seats({trips, seatItems, bookSeat, unbookSeat, booking, bookings, updateBookingSeats}) {
     const [showModal, setShowModal] = useState(false);
-    console.log("show",showModal)
     const { tripId } = useParams();
-    console.log(tripId && tripId)
     const trip = trips.find(trip => trip.id == tripId);
-    console.log(trip);
-
+    const [seats, setSeats] = useState([]);
+    console.log("seats",seats)
+    const [updatedTrip, setUpdatedTrip] = useState(trip)
+    console.log("show",showModal)
+    console.log(tripId && tripId)
+    useEffect(() => {
+        setUpdatedTrip(prevSate => {
+            return {
+                ...prevSate,
+                seats: []
+            }
+        })
+    }, [])
+    console.log("updted",updatedTrip);
+    
     console.log("seatItems",seatItems);
-
+    console.log("bookings",bookings)
     return (
         <div>
             
             <DestinationFrame>
-                <ConfirmationBooking setShowModal={setShowModal} showModal={showModal}/>
+                <ConfirmationBooking booking={booking} updatedTrip={updatedTrip} setShowModal={setShowModal} showModal={showModal}/>
                 <Clock src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC7NdbqIz7MkVy7G7CGjhfofoZZSDxyhvWAw&usqp=CAU" alt="Bus image"/>
                 <Base>
                     <h2>Book a seat to:</h2>
@@ -91,7 +102,7 @@ export default function Seats({trips, seatItems, bookSeat, unbookSeat}) {
                     <h3>Pick a seat</h3>
                     <SeatList>
                         {trip.seats.map(seat => (
-                            <SeatItem key={seat.id} seatItems={seatItems} bookSeat={bookSeat} unbookSeat={unbookSeat} seat={seat}/>
+                            <SeatItem setSeats={setSeats} updateBookingSeats={updateBookingSeats} booking={booking} key={seat.id} seatItems={seatItems} bookSeat={bookSeat} unbookSeat={unbookSeat} seat={seat}/>
                         ))}
                     </SeatList>
                 </div>
@@ -126,7 +137,18 @@ export default function Seats({trips, seatItems, bookSeat, unbookSeat}) {
                         <span>Ar</span>
                         <span>/seat</span>
                     </div>
-                    <button onClick={() => setShowModal(!showModal)}>Book <i>{seatItems.length > 0 ? seatItems.length : 0}</i> seat</button>
+                    <button onClick={() => {
+                        setShowModal(!showModal)
+                        setUpdatedTrip(prevSate => {
+                            return {
+                                ...prevSate,
+                                seats: seats
+                            }
+                        })
+                        console.log("up",updatedTrip)
+                        
+                    }
+                        }>Book <i>{seatItems.length > 0 ? seatItems.length : 0}</i> seat</button>
                     <p>Total: {seatItems.length > 0 ? trip.price * seatItems.length : 0} Ar</p>
                 </div>
             </InfoFeature>

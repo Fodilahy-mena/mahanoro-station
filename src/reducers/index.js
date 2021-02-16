@@ -26,6 +26,7 @@ function trips(state =[], action){
 
 }
 
+
 function passenger(state={}, action) {
     switch (action.type) {
         case 'SET_PASSENGER':
@@ -35,10 +36,24 @@ function passenger(state={}, action) {
     }
 }
 
+function bookings(state = [], action) {
+    switch (action.type) {
+        case "SET_BOOKINGS":
+            return action.payload
+        case "BOOKING":
+            console.log("state",state)
+            // push in an immutable way
+            return [...state, action.payload]
+        default:
+            return state;
+    }
+
+}
 
 export default combineReducers({
     trips,
     seatItems,
     passenger,
+    bookings
   });
   

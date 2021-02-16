@@ -45,3 +45,18 @@ export function setPassenger(passenger) {
     }
 }
 
+export function setBookings(bookings){
+  return {
+    type: "SET_BOOKINGS",
+    payload: bookings
+  }
+}
+
+export function booking(booking) {
+  return {
+  type: "BOOKING",
+  payload: booking
+  }
+}
+
+

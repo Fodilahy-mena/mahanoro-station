@@ -1,17 +1,19 @@
 import { connect } from 'react-redux';
 import Seats from '../components/Seats';
-import {bookSeat, unbookSeat} from '../actions';
+import {bookSeat, unbookSeat, booking} from '../actions';
 
 function mapStateToProps(state) {
 	return {
 		trips: state.trips,
-		seatItems: state.seatItems
+		seatItems: state.seatItems,
+		bookings: state.bookings
 	};
 }
 
 const mapDispatchToProps = {
 	bookSeat,
-	unbookSeat
+	unbookSeat,
+	booking,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Seats);

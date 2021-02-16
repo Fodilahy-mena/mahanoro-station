@@ -7,5 +7,6 @@ export default{
         "passengerFirstName": "John",
         "passengerLastName": "Doe",
         "passengerPhoneNumber": "0344752060",
-    }
+    },
+    bookings: []
 }
