@@ -35,12 +35,6 @@ export function resetSeats() {
     type: "RESET_SEATS"
   }
 }
-export function setUpdatedSeat(seat) {
-  return {
-    type: "SET_UPDATED_SEAT",
-    payload: seat
-  }
-}
 
 export function addToSeats(seat) {
   return {
@@ -48,14 +42,6 @@ export function addToSeats(seat) {
     payload: seat
   }
 }
-
-export function updateSeat() {
-  return {
-    type: "UPDATE_SEAT",
-  }
-}
-
-
 
 
 export function bookSeat(seat) {

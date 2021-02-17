@@ -33,10 +33,10 @@ const TripDirection = styled.h3`
 
 
 export default function Cities({getTrips, trips}) {
-    // const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(resetSeats());
-    // }, []);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(resetSeats());
+    }, []);
     useEffect(() => {
 		getTrips();
         

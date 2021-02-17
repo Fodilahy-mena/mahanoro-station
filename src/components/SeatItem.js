@@ -8,6 +8,7 @@ const SeatImage = styled.img`
     max-width: 44px;
 `;
 const Item = styled.li`
+    cursor: pointer;
     list-style: none;
     background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #E53170;
 `;
@@ -17,9 +18,9 @@ export default function SeatItem({seatItems, seat, bookSeat, unbookSeat}) {
     const isAlreadyBooked = seatItems.some(item => item.id == seat.id);
     
     const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(resetSeats());
-    // }, []);
+    useEffect(() => {
+        dispatch(resetSeats());
+    }, []);
     
     return (
         isAlreadyBooked ? 
@@ -33,10 +34,10 @@ export default function SeatItem({seatItems, seat, bookSeat, unbookSeat}) {
             if(seat.isAvailable) {
                 setTimeout(() => {
                     dispatch(addToSeats(seat));
-                }, 200)
+                }, 50)
                 setTimeout(() => {
                     bookSeat(seat);
-                }, 300)
+                }, 100)
             } 
 
             }} key={seat.id}>

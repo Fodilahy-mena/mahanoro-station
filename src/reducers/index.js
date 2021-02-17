@@ -70,22 +70,6 @@ function seats(state=[], action) {
 }
 
 
-// function updatedSeat(state={}, action) {
-//     switch (action.type) {
-//         case "SET_UPDATED_SEAT":
-//             return action.payload
-//         case "ADD_TO_SEATS":
-//             return {
-//                 ...state,
-//                 passengerFirstName: "Jerome",
-//                 passengerLastName: "Emilien",
-//                 passengerPhoneNumber: "034"
-//             }
-//         default:
-//             return state;
-//     }
-// }
-
 
 export default combineReducers({
     trips,
@@ -93,6 +77,5 @@ export default combineReducers({
     passenger,
     bookings,
     seats,
-    // updatedSeat
   });
   
