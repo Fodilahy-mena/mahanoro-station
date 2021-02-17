@@ -48,7 +48,7 @@ const BookingBase = styled.div`
 `;
 export default function MyAccount({passenger, bookings}) {
     console.log(passenger)
-    console.log(bookings)
+    console.log("bookings",bookings)
     return (
         <>
             <ProfileFrame>

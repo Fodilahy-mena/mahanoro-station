@@ -54,6 +54,7 @@ export default function ConfirmationBooking({setShowModal,showModal, booking, up
                 <Link to="/account">
                     <ButtonToAccount onClick={() => {
                         booking(updatedTrip)
+                        
                     }}>Check your account</ButtonToAccount>
                 </Link>
             </Base>

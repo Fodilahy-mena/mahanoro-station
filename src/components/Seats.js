@@ -2,7 +2,10 @@ import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import { useParams} from 'react-router-dom';
 import SeatItem from './SeatItem';
+import { useSelector, useDispatch} from 'react-redux';
+import {setSeats} from '../actions';
 import ConfirmationBooking from './ConfirmationBooking';
+import BusSvg from '../icons/bus.svg';
 
 const DestinationFrame = styled.div`
     display: flex;
@@ -16,7 +19,7 @@ const DestinationFrame = styled.div`
     }
 `;
 
-const Clock = styled.img`
+const BusImg = styled.img`
     width: 134px;
 `;
 
@@ -68,11 +71,14 @@ export default function Seats({trips, seatItems, bookSeat, unbookSeat, booking, 
     const [showModal, setShowModal] = useState(false);
     const { tripId } = useParams();
     const trip = trips.find(trip => trip.id == tripId);
-    const [seats, setSeats] = useState([]);
-    console.log("seats",seats)
+    const seats = useSelector(state => state.seats);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(setSeats(seats));
+    }, []);
+
     const [updatedTrip, setUpdatedTrip] = useState(trip)
-    console.log("show",showModal)
-    console.log(tripId && tripId)
+    
     useEffect(() => {
         setUpdatedTrip(prevSate => {
             return {
@@ -81,16 +87,13 @@ export default function Seats({trips, seatItems, bookSeat, unbookSeat, booking, 
             }
         })
     }, [])
-    console.log("updted",updatedTrip);
     
-    console.log("seatItems",seatItems);
-    console.log("bookings",bookings)
     return (
         <div>
             
             <DestinationFrame>
                 <ConfirmationBooking booking={booking} updatedTrip={updatedTrip} setShowModal={setShowModal} showModal={showModal}/>
-                <Clock src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC7NdbqIz7MkVy7G7CGjhfofoZZSDxyhvWAw&usqp=CAU" alt="Bus image"/>
+                <BusImg src={BusSvg} alt="Bus image"/>
                 <Base>
                     <h2>Book a seat to:</h2>
                     <p>{trip.destination}</p>
@@ -102,7 +105,7 @@ export default function Seats({trips, seatItems, bookSeat, unbookSeat, booking, 
                     <h3>Pick a seat</h3>
                     <SeatList>
                         {trip.seats.map(seat => (
-                            <SeatItem setSeats={setSeats} updateBookingSeats={updateBookingSeats} booking={booking} key={seat.id} seatItems={seatItems} bookSeat={bookSeat} unbookSeat={unbookSeat} seat={seat}/>
+                            <SeatItem updateBookingSeats={updateBookingSeats} booking={booking} key={seat.id} seatItems={seatItems} bookSeat={bookSeat} unbookSeat={unbookSeat} seat={seat}/>
                         ))}
                     </SeatList>
                 </div>

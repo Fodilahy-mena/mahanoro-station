@@ -1,7 +1,8 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import Bus from '../icons/bus.svg';
+import ClockSvg from '../icons/alarm-clock.svg'
 const DestinationFrame = styled.div`
     display: flex;
     flex-direction: row;
@@ -46,6 +47,9 @@ const BaseItem = styled.div`
     display: flex;
     flex-direction: column;
 `;
+const BusImage = styled.img`
+    max-width: 50px;
+`;
 
 export default function Destination({trips}) {
     const { destination } = useParams();
@@ -56,7 +60,7 @@ export default function Destination({trips}) {
     return (
         <div>
             <DestinationFrame>
-                <Clock src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUki2YIQSsl1Ktkh0oMVtv8xLg9-VvFfNuEQ&usqp=CAU" alt="Clock image"/>
+                <Clock src={ClockSvg} alt="Clock image"/>
                 <Base>
                     <h2>Next trips to:</h2>
                     <p>{destination && destination}</p>
@@ -65,7 +69,7 @@ export default function Destination({trips}) {
             <List>
                 {filteredDestination.map(destination => (
                 <Item key={destination.id}>
-                    <i>🚖 </i>
+                    <BusImage src={Bus} alt="Bus image"/>
                     <ItemFrame>
                         <BaseItem>
                             <span>{new Date(destination.departureTime).getDay()}</span>

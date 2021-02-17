@@ -35794,7 +35794,9 @@ exports.ServerStyleSheet = Ue;
 "production" !== "development" && "undefined" != typeof navigator && "ReactNative" === navigator.product && console.warn("It looks like you've imported 'styled-components' on React Native.\nPerhaps you're looking to import 'styled-components/native'?\nRead more about this at https://www.styled-components.com/docs/basics#react-native"), "production" !== "development" && "test" !== "development" && (window["__styled-components-init__"] = window["__styled-components-init__"] || 0, 1 === window["__styled-components-init__"] && console.warn("It looks like there are several instances of 'styled-components' initialized in this application. This may cause dynamic styles to not render properly, errors during the rehydration process, a missing theme prop, and makes your application bigger without good reason.\n\nSee https://s-c.sh/2BAXzed for more info."), window["__styled-components-init__"] += 1);
 var _default = qe;
 exports.default = _default;
-},{"react-is":"node_modules/react-is/index.js","react":"node_modules/react/index.js","shallowequal":"node_modules/shallowequal/index.js","@emotion/stylis":"node_modules/@emotion/stylis/dist/stylis.browser.esm.js","@emotion/unitless":"node_modules/@emotion/unitless/dist/unitless.browser.esm.js","@emotion/is-prop-valid":"node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js","hoist-non-react-statics":"node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js","process":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js"}],"src/components/Header.js":[function(require,module,exports) {
+},{"react-is":"node_modules/react-is/index.js","react":"node_modules/react/index.js","shallowequal":"node_modules/shallowequal/index.js","@emotion/stylis":"node_modules/@emotion/stylis/dist/stylis.browser.esm.js","@emotion/unitless":"node_modules/@emotion/unitless/dist/unitless.browser.esm.js","@emotion/is-prop-valid":"node_modules/@emotion/is-prop-valid/dist/is-prop-valid.browser.esm.js","hoist-non-react-statics":"node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js","process":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/node_modules/process/browser.js"}],"src/icons/logo.svg":[function(require,module,exports) {
+module.exports = "/logo.7bcec8f2.svg";
+},{}],"src/components/Header.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -35807,6 +35809,8 @@ var _react = _interopRequireDefault(require("react"));
 var _reactRouterDom = require("react-router-dom");
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _logo = _interopRequireDefault(require("../icons/logo.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -35824,11 +35828,13 @@ const Frame = _styledComponents.default.div`
 function Header() {
   return /*#__PURE__*/_react.default.createElement("header", null, /*#__PURE__*/_react.default.createElement(Frame, null, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/"
-  }, /*#__PURE__*/_react.default.createElement("h1", null, "\uD83D\uDE8C Mahanoro Station")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, /*#__PURE__*/_react.default.createElement("h1", null, /*#__PURE__*/_react.default.createElement("img", {
+    src: _logo.default
+  }), " Mahanoro Station")), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: "/account"
   }, /*#__PURE__*/_react.default.createElement("button", null, "My account"))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"node_modules/react-redux/es/components/Context.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","../icons/logo.svg":"src/icons/logo.svg"}],"node_modules/react-redux/es/components/Context.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38192,73 +38198,7 @@ var _shallowEqual = _interopRequireDefault(require("./utils/shallowEqual"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 (0, _batch.setBatch)(_reactBatchedUpdates.unstable_batchedUpdates);
-},{"./components/Provider":"node_modules/react-redux/es/components/Provider.js","./components/connectAdvanced":"node_modules/react-redux/es/components/connectAdvanced.js","./components/Context":"node_modules/react-redux/es/components/Context.js","./connect/connect":"node_modules/react-redux/es/connect/connect.js","./hooks/useDispatch":"node_modules/react-redux/es/hooks/useDispatch.js","./hooks/useSelector":"node_modules/react-redux/es/hooks/useSelector.js","./hooks/useStore":"node_modules/react-redux/es/hooks/useStore.js","./utils/batch":"node_modules/react-redux/es/utils/batch.js","./utils/reactBatchedUpdates":"node_modules/react-redux/es/utils/reactBatchedUpdates.js","./utils/shallowEqual":"node_modules/react-redux/es/utils/shallowEqual.js"}],"src/components/Cities.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = Cities;
-
-var _react = _interopRequireWildcard(require("react"));
-
-var _styledComponents = _interopRequireDefault(require("styled-components"));
-
-var _reactRouterDom = require("react-router-dom");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
-const CityIcon = _styledComponents.default.img`
-    width: 35px;
-    height: 35px;
-`;
-const TripList = _styledComponents.default.ul`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    padding: 0;
-`;
-const TripItem = _styledComponents.default.li`
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 33px 28px;
-    background: #0F0E17;
-`;
-const TripDirection = _styledComponents.default.h3`
-    color: #FFFFFF;
-    margin-left: 32px;
-    text-transform: uppercase;
-`;
-
-function Cities({
-  getTrips,
-  trips
-}) {
-  (0, _react.useEffect)(() => {
-    getTrips();
-  }, []);
-  console.log(trips);
-
-  function getUniqueListBy(trips, key) {
-    return [...new Map(trips.map(trip => [trip[key], trip])).values()];
-  }
-
-  const filteredTripsByDestination = getUniqueListBy(trips, 'destination');
-  console.log("filteredTripsByDestination", filteredTripsByDestination);
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Where are you going?"), /*#__PURE__*/_react.default.createElement(TripList, null, filteredTripsByDestination.map(trip => /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: `/city/${trip.destination}`,
-    key: trip.id
-  }, /*#__PURE__*/_react.default.createElement(TripItem, null, /*#__PURE__*/_react.default.createElement(CityIcon, {
-    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcR18F7ssux6MzB3Tp5WRTre2FohYKTJLilg&usqp=CAU"
-  }), /*#__PURE__*/_react.default.createElement(TripDirection, null, trip.destination))))));
-}
-},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/actions/index.js":[function(require,module,exports) {
+},{"./components/Provider":"node_modules/react-redux/es/components/Provider.js","./components/connectAdvanced":"node_modules/react-redux/es/components/connectAdvanced.js","./components/Context":"node_modules/react-redux/es/components/Context.js","./connect/connect":"node_modules/react-redux/es/connect/connect.js","./hooks/useDispatch":"node_modules/react-redux/es/hooks/useDispatch.js","./hooks/useSelector":"node_modules/react-redux/es/hooks/useSelector.js","./hooks/useStore":"node_modules/react-redux/es/hooks/useStore.js","./utils/batch":"node_modules/react-redux/es/utils/batch.js","./utils/reactBatchedUpdates":"node_modules/react-redux/es/utils/reactBatchedUpdates.js","./utils/shallowEqual":"node_modules/react-redux/es/utils/shallowEqual.js"}],"src/actions/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38267,6 +38207,11 @@ Object.defineProperty(exports, "__esModule", {
 exports.setTrips = setTrips;
 exports.getTrips = getTrips;
 exports.setSeatItems = setSeatItems;
+exports.setSeats = setSeats;
+exports.resetSeats = resetSeats;
+exports.setUpdatedSeat = setUpdatedSeat;
+exports.addToSeats = addToSeats;
+exports.updateSeat = updateSeat;
 exports.bookSeat = bookSeat;
 exports.unbookSeat = unbookSeat;
 exports.setPassenger = setPassenger;
@@ -38295,6 +38240,39 @@ function setSeatItems(seatItems) {
   return {
     type: "SET_SEAT_ITEMS",
     payload: seatItems
+  };
+}
+
+function setSeats(seats) {
+  return {
+    type: "SEATS",
+    payload: seats
+  };
+}
+
+function resetSeats() {
+  return {
+    type: "RESET_SEATS"
+  };
+}
+
+function setUpdatedSeat(seat) {
+  return {
+    type: "SET_UPDATED_SEAT",
+    payload: seat
+  };
+}
+
+function addToSeats(seat) {
+  return {
+    type: "ADD_TO_SEATS",
+    payload: seat
+  };
+}
+
+function updateSeat() {
+  return {
+    type: "UPDATE_SEAT"
   };
 }
 
@@ -38332,7 +38310,85 @@ function booking(booking) {
     payload: booking
   };
 }
-},{}],"src/containers/Cities.js":[function(require,module,exports) {
+},{}],"src/icons/city.svg":[function(require,module,exports) {
+module.exports = "/city.2b4317e3.svg";
+},{}],"src/components/Cities.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Cities;
+
+var _react = _interopRequireWildcard(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _actions = require("../actions");
+
+var _reactRedux = require("react-redux");
+
+var _city = _interopRequireDefault(require("../icons/city.svg"));
+
+var _reactRouterDom = require("react-router-dom");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+const CityIcon = _styledComponents.default.img`
+    width: 35px;
+    height: 35px;
+`;
+const TripList = _styledComponents.default.ul`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0;
+`;
+const TripItem = _styledComponents.default.li`
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 33px 28px;
+    background: #0F0E17;
+`;
+const TripDirection = _styledComponents.default.h3`
+    color: #FFFFFF;
+    margin-left: 32px;
+    text-transform: uppercase;
+`;
+
+function Cities({
+  getTrips,
+  trips
+}) {
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //     dispatch(resetSeats());
+  // }, []);
+  (0, _react.useEffect)(() => {
+    getTrips();
+  }, []);
+  console.log(trips);
+
+  function getUniqueListBy(trips, key) {
+    return [...new Map(trips.map(trip => [trip[key], trip])).values()];
+  }
+
+  const filteredTripsByDestination = getUniqueListBy(trips, 'destination');
+  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, "Where are you going?"), /*#__PURE__*/_react.default.createElement(TripList, null, filteredTripsByDestination.map(trip => /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+    to: `/city/${trip.destination}`,
+    key: trip.id,
+    onClick: () => (0, _actions.resetSeats)()
+  }, /*#__PURE__*/_react.default.createElement(TripItem, null, /*#__PURE__*/_react.default.createElement(CityIcon, {
+    src: _city.default
+  }), /*#__PURE__*/_react.default.createElement(TripDirection, null, trip.destination))))));
+}
+},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","../actions":"src/actions/index.js","react-redux":"node_modules/react-redux/es/index.js","../icons/city.svg":"src/icons/city.svg","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js"}],"src/containers/Cities.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38440,7 +38496,7 @@ function MyAccount({
   bookings
 }) {
   console.log(passenger);
-  console.log(bookings);
+  console.log("bookings", bookings);
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(ProfileFrame, null, /*#__PURE__*/_react.default.createElement(ProfileImage, {
     src: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAM1BMVEXk5ueutLfn6eqrsbTp6+zg4uOwtrnJzc/j5earsbW0uby4vcDQ09XGyszU19jd3+G/xMamCvwDAAAFLklEQVR4nO2d2bLbIAxAbYE3sDH//7WFbPfexG4MiCAcnWmnrzkjIRaD2jQMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMwzAMw5wQkHJczewxZh2lhNK/CBOQo1n0JIT74/H/qMV0Z7GU3aCcVPuEE1XDCtVLAhgtpme7H0s1N1U7QjO0L8F7llzGeh1hEG/8Lo7TUmmuSrOfns9xnGXpXxsONPpA/B6OqqstjC6Ax/0ujkNdYQQbKNi2k64qiiEZ+ohi35X+2YcZw/WujmslYewiAliVYrxgJYrdwUmwXsU+RdApUi83oNIE27YvrfB/ZPg8+BJETXnqh9CVzBbTQHgojgiCvtqU9thFJg/CKz3VIMKMEkIXxIWqIpIg2SkjYj+xC816mrJae2aiWGykxRNsW0UwiJghJDljYI5CD8GRiCtIsJxizYUPQ2pzItZy5pcisTRdk/a9m4amtNNfBuQkdVhSaYqfpNTSFGfb9GRIakrE2Pm+GFLaCQPqiu0OpWP+HMPQQcgQMiQprWXNmsVwIjQjYi/ZrhAqNTCgr2gu0Jnz85RSSjso0HkMFZ0YZjKkc26a/jlmh9JiDyDxi9oeorTYAzZkwwoMz19pzj9bnH/GP/+qbchjSGflneWYhtTuKdMOmNKZcJ5TjInQKcYXnESd/jQxy0ENpULTNGOGgxpap/oyw9pbUAqhfx2Dbkhovvfgz4iUzoM9+GlK6/Mh4q29hyC1mwro30hpVVLPF9wYQr71RazOeM5/cw81iBRD+A03aM9/C/obbrKjbYSpCmIVG3qT/Q8oeUo3Rz0IL7vI1tEbCB9pSiu8I/aV8x3Kg/BGWrWp4ZVs0nZfmAoEG4h/61yHYIJiFSl6Q0Vk6tTW1N8kYp8hdOkfHYYMXd2Qft+8CYwqYDSKvqIh+MCF8Wgca2u/cwdgeW3TtuVn6+1oBs3yLo5C2JpK6CvQzGpfUkz9UG/87gCsi5o2LIXolxN0FbwAsjOLEr+YJmXn7iR6N0BCt5p5cMxm7eAsfS+/CACQf4CTpKjzgkvr2cVarVTf96372yut7XLJ1sa7lv6VcfgYrWaxqr3Wlo1S6pvStr22sxOtTNPLzdY3nj20bPP+ejFdJYkLsjGLdtPBEbe/mr2bQKiXWJDroA+vtzc0p9aahuwqHMDYrQEXHEw9jwQl3drMpts9JBU1SdktPe5FBRdJQ6bwXBpa57ib2A8kukQDzMjh++Uo7Fo6Wd02Pkf4fknqoo4HtvAIjsqUcjx6DIPgWCaOML9rKI/oqD9/lgNrn+eF+p7j8tnzHBiR7+kdUGw/+V1Kzkc75mMy6U+FMaxjPibiM1U1uGM+puInHpmALZCgP4pt7i840MV8+0R1zPsRB6UTcqpizncYwZ89syDydfyWCwXB1l8/zRNGWbTG/GHKUm9AkxHMc/EGSk3z2+ArEhPEV5TUBLEvUGFcjEUH80J/jveTGOAJEljJbILWGQT3zRYiwuKsUXN1EEJAzBhRJFll7mBUG7KD8EqPkKekBREaL8hMDZLQSG6AQjtHPYmvTQnX0TtpC1SYCe2YdkkyLP3jj5BSbKiuR585eQhTgoje6yIb0Yb0C+mV6EYvebqw5SDy2WmubogZiF2AVxPC2FpDf8H2Q9QWo6IkjUxTWVEI3WY/wrCeSuqJ+eRWzXR/JXwgVjUMozbCOfoEZiSiKVGepqv5CJ8RyR4D7xBeamqa7z3BJ/z17JxuBPdv93d/a2Ki878MMAzDMAzDMAzDMAzDMF/KP09VUmxBAiI3AAAAAElFTkSuQmCC",
     alt: "Your profile account"
@@ -38505,7 +38561,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function Account() {
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_MyAccount.default, null));
 }
-},{"react":"node_modules/react/index.js","../containers/MyAccount":"src/containers/MyAccount.js"}],"src/components/Destination.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","../containers/MyAccount":"src/containers/MyAccount.js"}],"src/icons/bus.svg":[function(require,module,exports) {
+module.exports = "/bus.33a4050c.svg";
+},{}],"src/icons/alarm-clock.svg":[function(require,module,exports) {
+module.exports = "/alarm-clock.43cd1702.svg";
+},{}],"src/components/Destination.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38518,6 +38578,10 @@ var _react = _interopRequireDefault(require("react"));
 var _reactRouterDom = require("react-router-dom");
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _bus = _interopRequireDefault(require("../icons/bus.svg"));
+
+var _alarmClock = _interopRequireDefault(require("../icons/alarm-clock.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38559,6 +38623,9 @@ const BaseItem = _styledComponents.default.div`
     display: flex;
     flex-direction: column;
 `;
+const BusImage = _styledComponents.default.img`
+    max-width: 50px;
+`;
 
 function Destination({
   trips
@@ -38570,15 +38637,18 @@ function Destination({
   const filteredDestination = trips.filter(trip => trip.destination === destination);
   console.log(filteredDestination);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(DestinationFrame, null, /*#__PURE__*/_react.default.createElement(Clock, {
-    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUki2YIQSsl1Ktkh0oMVtv8xLg9-VvFfNuEQ&usqp=CAU",
+    src: _alarmClock.default,
     alt: "Clock image"
   }), /*#__PURE__*/_react.default.createElement(Base, null, /*#__PURE__*/_react.default.createElement("h2", null, "Next trips to:"), /*#__PURE__*/_react.default.createElement("p", null, destination && destination))), /*#__PURE__*/_react.default.createElement(List, null, filteredDestination.map(destination => /*#__PURE__*/_react.default.createElement(Item, {
     key: destination.id
-  }, /*#__PURE__*/_react.default.createElement("i", null, "\uD83D\uDE96 "), /*#__PURE__*/_react.default.createElement(ItemFrame, null, /*#__PURE__*/_react.default.createElement(BaseItem, null, /*#__PURE__*/_react.default.createElement("span", null, new Date(destination.departureTime).getDay()), /*#__PURE__*/_react.default.createElement("span", null, new Date(destination.departureTime).getHours(), ":", new Date(destination.departureTime).getMinutes())), /*#__PURE__*/_react.default.createElement(BaseItem, null, /*#__PURE__*/_react.default.createElement("span", null, new Date(destination.departureTime).toLocaleDateString()), /*#__PURE__*/_react.default.createElement("span", null, destination.seats.filter(seat => seat.isAvailable === true).length, " seats left"))), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
+  }, /*#__PURE__*/_react.default.createElement(BusImage, {
+    src: _bus.default,
+    alt: "Bus image"
+  }), /*#__PURE__*/_react.default.createElement(ItemFrame, null, /*#__PURE__*/_react.default.createElement(BaseItem, null, /*#__PURE__*/_react.default.createElement("span", null, new Date(destination.departureTime).getDay()), /*#__PURE__*/_react.default.createElement("span", null, new Date(destination.departureTime).getHours(), ":", new Date(destination.departureTime).getMinutes())), /*#__PURE__*/_react.default.createElement(BaseItem, null, /*#__PURE__*/_react.default.createElement("span", null, new Date(destination.departureTime).toLocaleDateString()), /*#__PURE__*/_react.default.createElement("span", null, destination.seats.filter(seat => seat.isAvailable === true).length, " seats left"))), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
     to: `/trip/${destination.id}`
   }, /*#__PURE__*/_react.default.createElement("button", null, "Book a seat"))))));
 }
-},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/containers/Destination.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","../icons/bus.svg":"src/icons/bus.svg","../icons/alarm-clock.svg":"src/icons/alarm-clock.svg"}],"src/containers/Destination.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38601,7 +38671,9 @@ function mapStateToProps(state) {
 var _default = (0, _reactRedux.connect)(mapStateToProps, null)(_Destination.default);
 
 exports.default = _default;
-},{"react-redux":"node_modules/react-redux/es/index.js","../components/Destination":"src/components/Destination.js"}],"src/components/SeatItem.js":[function(require,module,exports) {
+},{"react-redux":"node_modules/react-redux/es/index.js","../components/Destination":"src/components/Destination.js"}],"src/icons/seat.svg":[function(require,module,exports) {
+module.exports = "/seat.16225190.svg";
+},{}],"src/components/SeatItem.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38612,6 +38684,12 @@ exports.default = SeatItem;
 var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _actions = require("../actions");
+
+var _reactRedux = require("react-redux");
+
+var _seat = _interopRequireDefault(require("../icons/seat.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38624,7 +38702,6 @@ const SeatImage = _styledComponents.default.img`
 `;
 const Item = _styledComponents.default.li`
     list-style: none;
-    padding: 8px;
     background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #E53170;
 `;
 
@@ -38632,49 +38709,40 @@ function SeatItem({
   seatItems,
   seat,
   bookSeat,
-  unbookSeat,
-  setSeats
+  unbookSeat
 }) {
   const isAlreadyBooked = seatItems.some(item => item.id == seat.id);
-  const [newSeat, setNewSeat] = (0, _react.useState)(); // useEffect(() => {
-  //     console.log("newSeat", newSeat)
-  // })
+  const dispatch = (0, _reactRedux.useDispatch)(); // useEffect(() => {
+  //     dispatch(resetSeats());
+  // }, []);
 
-  console.log("New", newSeat);
   return isAlreadyBooked ? /*#__PURE__*/_react.default.createElement(Item, {
     className: "booked",
     onClick: () => {
       unbookSeat(seat.id);
     }
   }, /*#__PURE__*/_react.default.createElement(SeatImage, {
-    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfvlNhh18sqYF2GvooJM_8PoIxuDkzqIgdlg&usqp=CAU",
+    src: _seat.default,
     alt: "Seat"
   })) : /*#__PURE__*/_react.default.createElement(Item, {
     className: !seat.isAvailable && 'seat_disabled',
-    onClick: up => {
+    onClick: () => {
       if (seat.isAvailable) {
-        setNewSeat(seat);
         setTimeout(() => {
-          setNewSeat(prevState => {
-            return { ...prevState,
-              passengerFirstName: "Jerome"
-            };
-          });
-        }, 250);
+          dispatch((0, _actions.addToSeats)(seat));
+        }, 200);
         setTimeout(() => {
-          console.log("NewO", newSeat);
-        }, 500);
-        bookSeat(seat);
-        setSeats(prevState => [...prevState, seat]);
+          bookSeat(seat);
+        }, 300);
       }
     },
     key: seat.id
   }, /*#__PURE__*/_react.default.createElement(SeatImage, {
-    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfvlNhh18sqYF2GvooJM_8PoIxuDkzqIgdlg&usqp=CAU",
+    src: _seat.default,
     alt: "Seat"
   }));
 }
-},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js"}],"src/components/ConfirmationBooking.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","../actions":"src/actions/index.js","react-redux":"node_modules/react-redux/es/index.js","../icons/seat.svg":"src/icons/seat.svg"}],"src/components/ConfirmationBooking.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -38767,7 +38835,13 @@ var _reactRouterDom = require("react-router-dom");
 
 var _SeatItem = _interopRequireDefault(require("./SeatItem"));
 
+var _reactRedux = require("react-redux");
+
+var _actions = require("../actions");
+
 var _ConfirmationBooking = _interopRequireDefault(require("./ConfirmationBooking"));
+
+var _bus = _interopRequireDefault(require("../icons/bus.svg"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38786,7 +38860,7 @@ const DestinationFrame = _styledComponents.default.div`
         pointer-events: all;
     }
 `;
-const Clock = _styledComponents.default.img`
+const BusImg = _styledComponents.default.img`
     width: 134px;
 `;
 const Base = _styledComponents.default.div`
@@ -38844,11 +38918,12 @@ function Seats({
     tripId
   } = (0, _reactRouterDom.useParams)();
   const trip = trips.find(trip => trip.id == tripId);
-  const [seats, setSeats] = (0, _react.useState)([]);
-  console.log("seats", seats);
+  const seats = (0, _reactRedux.useSelector)(state => state.seats);
+  const dispatch = (0, _reactRedux.useDispatch)();
+  (0, _react.useEffect)(() => {
+    dispatch((0, _actions.setSeats)(seats));
+  }, []);
   const [updatedTrip, setUpdatedTrip] = (0, _react.useState)(trip);
-  console.log("show", showModal);
-  console.log(tripId && tripId);
   (0, _react.useEffect)(() => {
     setUpdatedTrip(prevSate => {
       return { ...prevSate,
@@ -38856,19 +38931,15 @@ function Seats({
       };
     });
   }, []);
-  console.log("updted", updatedTrip);
-  console.log("seatItems", seatItems);
-  console.log("bookings", bookings);
   return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(DestinationFrame, null, /*#__PURE__*/_react.default.createElement(_ConfirmationBooking.default, {
     booking: booking,
     updatedTrip: updatedTrip,
     setShowModal: setShowModal,
     showModal: showModal
-  }), /*#__PURE__*/_react.default.createElement(Clock, {
-    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC7NdbqIz7MkVy7G7CGjhfofoZZSDxyhvWAw&usqp=CAU",
+  }), /*#__PURE__*/_react.default.createElement(BusImg, {
+    src: _bus.default,
     alt: "Bus image"
   }), /*#__PURE__*/_react.default.createElement(Base, null, /*#__PURE__*/_react.default.createElement("h2", null, "Book a seat to:"), /*#__PURE__*/_react.default.createElement("p", null, trip.destination))), /*#__PURE__*/_react.default.createElement(InfoFeature, null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h3", null, "Pick a seat"), /*#__PURE__*/_react.default.createElement(SeatList, null, trip.seats.map(seat => /*#__PURE__*/_react.default.createElement(_SeatItem.default, {
-    setSeats: setSeats,
     updateBookingSeats: updateBookingSeats,
     booking: booking,
     key: seat.id,
@@ -38888,7 +38959,7 @@ function Seats({
     }
   }, "Book ", /*#__PURE__*/_react.default.createElement("i", null, seatItems.length > 0 ? seatItems.length : 0), " seat"), /*#__PURE__*/_react.default.createElement("p", null, "Total: ", seatItems.length > 0 ? trip.price * seatItems.length : 0, " Ar"))));
 }
-},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./SeatItem":"src/components/SeatItem.js","./ConfirmationBooking":"src/components/ConfirmationBooking.js"}],"src/containers/Seats.js":[function(require,module,exports) {
+},{"react":"node_modules/react/index.js","styled-components":"node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"node_modules/react-router-dom/esm/react-router-dom.js","./SeatItem":"src/components/SeatItem.js","react-redux":"node_modules/react-redux/es/index.js","../actions":"src/actions/index.js","./ConfirmationBooking":"src/components/ConfirmationBooking.js","../icons/bus.svg":"src/icons/bus.svg"}],"src/containers/Seats.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -39003,7 +39074,9 @@ var _default = {
     "passengerLastName": "Doe",
     "passengerPhoneNumber": "0344752060"
   },
-  bookings: []
+  bookings: [],
+  seats: [] // updatedSeat: {}
+
 };
 exports.default = _default;
 },{}],"src/reducers/index.js":[function(require,module,exports) {
@@ -39062,8 +39135,7 @@ function bookings(state = [], action) {
       return action.payload;
 
     case "BOOKING":
-      console.log("state", state); // push in an immutable way
-
+      // push in an immutable way
       return [...state, action.payload];
 
     default:
@@ -39071,11 +39143,49 @@ function bookings(state = [], action) {
   }
 }
 
+function seats(state = [], action) {
+  switch (action.type) {
+    case "SEATS":
+      return action.payload;
+
+    case "ADD_TO_SEATS":
+      // push in an immutable way
+      return [...state, { ...action.payload,
+        passengerFirstName: "Jerome",
+        passengerLastName: "Emilien",
+        passengerPhoneNumber: "034"
+      }];
+
+    case "RESET_SEATS":
+      return [];
+
+    default:
+      return state;
+  }
+} // function updatedSeat(state={}, action) {
+//     switch (action.type) {
+//         case "SET_UPDATED_SEAT":
+//             return action.payload
+//         case "ADD_TO_SEATS":
+//             return {
+//                 ...state,
+//                 passengerFirstName: "Jerome",
+//                 passengerLastName: "Emilien",
+//                 passengerPhoneNumber: "034"
+//             }
+//         default:
+//             return state;
+//     }
+// }
+
+
 var _default = (0, _redux.combineReducers)({
   trips,
   seatItems,
   passenger,
-  bookings
+  bookings,
+  seats // updatedSeat
+
 });
 
 exports.default = _default;
@@ -39149,7 +39259,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58780" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60985" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

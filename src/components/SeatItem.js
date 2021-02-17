@@ -1,54 +1,46 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import styled from 'styled-components';
+import {resetSeats, addToSeats,} from '../actions';
+import {useDispatch } from 'react-redux';
+import SeatSvg from '../icons/seat.svg';
 
 const SeatImage = styled.img`
     max-width: 44px;
 `;
 const Item = styled.li`
     list-style: none;
-    padding: 8px;
     background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #E53170;
 `;
 
-export default function SeatItem({seatItems, seat, bookSeat, unbookSeat, setSeats}) {
+export default function SeatItem({seatItems, seat, bookSeat, unbookSeat}) {
 
     const isAlreadyBooked = seatItems.some(item => item.id == seat.id);
-    const [newSeat, setNewSeat] = useState();
+    
+    const dispatch = useDispatch();
     // useEffect(() => {
-    //     console.log("newSeat", newSeat)
-    // })
-    console.log("New",newSeat)
+    //     dispatch(resetSeats());
+    // }, []);
+    
     return (
         isAlreadyBooked ? 
         <Item className="booked" onClick={() => { 
             unbookSeat(seat.id)
             }}>
-            <SeatImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfvlNhh18sqYF2GvooJM_8PoIxuDkzqIgdlg&usqp=CAU" alt="Seat"/>
+            <SeatImage src={SeatSvg} alt="Seat"/>
         </Item>
         :
-        <Item className={!seat.isAvailable && 'seat_disabled'} onClick={(up) => { 
+        <Item className={!seat.isAvailable && 'seat_disabled'} onClick={() => { 
             if(seat.isAvailable) {
-                setNewSeat(seat); 
-                
                 setTimeout(() => {
-                    setNewSeat((prevState) => {
-                        return {
-                            ...prevState,
-                            passengerFirstName: "Jerome"
-                        }
-                    }
-                    
-                    )
-                }, 250);
+                    dispatch(addToSeats(seat));
+                }, 200)
                 setTimeout(() => {
-                    console.log("NewO",newSeat)
-                }, 500)
-                bookSeat(seat);
-                setSeats(prevState => [...prevState, seat]);
-                
+                    bookSeat(seat);
+                }, 300)
             } 
+
             }} key={seat.id}>
-            <SeatImage src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfvlNhh18sqYF2GvooJM_8PoIxuDkzqIgdlg&usqp=CAU" alt="Seat"/>
+            <SeatImage src={SeatSvg} alt="Seat"/>
         </Item>
     )
 }

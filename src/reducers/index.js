@@ -41,7 +41,6 @@ function bookings(state = [], action) {
         case "SET_BOOKINGS":
             return action.payload
         case "BOOKING":
-            console.log("state",state)
             // push in an immutable way
             return [...state, action.payload]
         default:
@@ -50,10 +49,50 @@ function bookings(state = [], action) {
 
 }
 
+function seats(state=[], action) {
+    switch (action.type) {
+        case "SEATS":
+            return action.payload
+        case "ADD_TO_SEATS":
+            // push in an immutable way
+            return [...state, {
+                ...action.payload,
+                passengerFirstName: "Jerome",
+                passengerLastName: "Emilien",
+                passengerPhoneNumber: "034"
+            }
+            ]
+        case "RESET_SEATS":
+            return []
+        default:
+            return state;
+    }
+}
+
+
+// function updatedSeat(state={}, action) {
+//     switch (action.type) {
+//         case "SET_UPDATED_SEAT":
+//             return action.payload
+//         case "ADD_TO_SEATS":
+//             return {
+//                 ...state,
+//                 passengerFirstName: "Jerome",
+//                 passengerLastName: "Emilien",
+//                 passengerPhoneNumber: "034"
+//             }
+//         default:
+//             return state;
+//     }
+// }
+
+
 export default combineReducers({
     trips,
     seatItems,
     passenger,
-    bookings
+    bookings,
+    seats,
+    // updatedSeat
   });
   

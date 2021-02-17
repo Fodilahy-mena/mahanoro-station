@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import Logo from '../icons/logo.svg';
 const Frame = styled.div`
     display: flex;
     flex-direction:row;
@@ -18,7 +18,7 @@ export default function Header() {
         <header>
             <Frame>
                 <Link to="/">
-                    <h1>🚌 Mahanoro Station</h1>
+                    <h1><img src={Logo}/> Mahanoro Station</h1>
                 </Link>
                 <Link to="/account">
                     <button>My account</button>

@@ -1,6 +1,8 @@
 import React, {useEffect} from 'react'
 import styled from 'styled-components';
-import { useParams, useHistory } from 'react-router-dom';
+import {resetSeats, addToSeats,} from '../actions';
+import {useDispatch } from 'react-redux';
+import CitySvg from '../icons/city.svg';
 
 import { Link } from 'react-router-dom';
 const CityIcon = styled.img`
@@ -31,9 +33,13 @@ const TripDirection = styled.h3`
 
 
 export default function Cities({getTrips, trips}) {
-    
+    // const dispatch = useDispatch();
+    // useEffect(() => {
+    //     dispatch(resetSeats());
+    // }, []);
     useEffect(() => {
 		getTrips();
+        
 	}, []);
     
 
@@ -42,16 +48,16 @@ export default function Cities({getTrips, trips}) {
         return [...new Map(trips.map(trip => [trip[key], trip])).values()]
     }
     const filteredTripsByDestination = getUniqueListBy(trips, 'destination')
-    console.log("filteredTripsByDestination",filteredTripsByDestination)
+    
     return (
         <div>
             <h2>Where are you going?</h2>
 
             <TripList>
                 {filteredTripsByDestination.map(trip => (
-                    <Link to={`/city/${trip.destination}`} key={trip.id}>
+                    <Link to={`/city/${trip.destination}`} key={trip.id} onClick={() => resetSeats()}>
                         <TripItem>
-                            <CityIcon src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcR18F7ssux6MzB3Tp5WRTre2FohYKTJLilg&usqp=CAU"/>
+                            <CityIcon src={CitySvg}/>
                             <TripDirection>{trip.destination}</TripDirection>
                         </TripItem>
                     </Link>

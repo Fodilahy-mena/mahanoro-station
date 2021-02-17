@@ -36,3 +36,38 @@ Feel free to use any workflow that you feel comfortable with. Below is a suggest
 You have until **Tuesday** at **15h30** to submit your github link and netlify link on this form : https://forms.gle/ikBWC2MokmdH4jdw6
 
 **Have fun building!** 🚀
+
+## Report
+
+In this project, I fetched the data from a given link which contains trips inside of actions index file. For the startup, the reducer for the trips is taking the trips from state file and that trips state is now receiving nothing until the data in getTrips action function is loaded. When the data is loaded, I can use that trips state to display where the properties deed to be displayed.
+
+### Project Structure.
+    - State:
+I have a state file where I declare some useful properties for this project. 
+Actions:
+I have action functions inside of actions `index`. Those function will be called wherever I want to change any property from state.
+    - Reducers:
+Inside of reducers `index` file, I have reducers that set or change the values of state properties.
+
+#### Components:
+	- Header: 
+This header component is for setting a navigation that displays two links – `Home` and `MyAccount` that lead to an Account page and Home page.
+	- Cities:
+The Cities component is for displaying trips from data, and when the user clicks on any of destinations list that are shown on the page, the user will see and can chose from any available trips from the direction that user has chosen. Not only that but also, from that `trips`, clicking on any of Book a seat buttons will show a lot of seats that user can book.
+
+    - Destination: 
+Destination component is only for showing the available seats from destination that user has chosen according to the the id link `to={`/trip/${destination.id}`}` that is passed to the params. And from here he can find seats to book. Also it shows some information about that trip.
+
+    - SeatItem and MyAccount
+They are just for displaying things - SeatItem is for the list of seats from one direction that was selected. Also for some proprties that need to be displayed. But the MyAccount component is for the user's data, where user can chage his account which is now doesn't work yet and for the bookings that user has booked.
+
+### Challenging part
+
+Displaying the bookings in the Account page is the most challenging part, when I select some seats from one trip and go to the Account page,it is fine for the first time. But when I select seats from another trip, the current selected seats are added to the new ones. So if I selected 3 seats from the current trip and 4 seats from the new trip, the seats in the new trip is going to be 7. 
+
+### Things to improve
+
+The account updating is not yet done because I was stuck with the seats booking. But I hope it could have been done if I got more time. As importand as that, I wanted to use compond components but the time wasn't enough for doing that so I focused more on the redux part. Also I haven't done styling.  
+
+
+

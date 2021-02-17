@@ -23,11 +23,46 @@ export function setSeatItems(seatItems){
     }
   }
 
+export function setSeats(seats) {
+  return {
+    type: "SEATS",
+    payload: seats
+  }
+}
+
+export function resetSeats() {
+  return {
+    type: "RESET_SEATS"
+  }
+}
+export function setUpdatedSeat(seat) {
+  return {
+    type: "SET_UPDATED_SEAT",
+    payload: seat
+  }
+}
+
+export function addToSeats(seat) {
+  return {
+    type: "ADD_TO_SEATS",
+    payload: seat
+  }
+}
+
+export function updateSeat() {
+  return {
+    type: "UPDATE_SEAT",
+  }
+}
+
+
+
+
 export function bookSeat(seat) {
-    return {
+  return {
     type: "BOOK_SEAT",
     payload: seat
-    }
+  }
 }
 
 export function unbookSeat(id) {
